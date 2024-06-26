@@ -1,6 +1,6 @@
 import {TooltipProvider} from "@radix-ui/react-tooltip";
 import {useWindowWidth} from "@react-hook/window-size";
-import {ChevronRight, LayoutDashboard, PersonStanding} from "lucide-react";
+import {ChevronRight, LayoutDashboard, Map, UserRound, UsersRound} from "lucide-react";
 import {useState} from "react";
 
 import {Button} from "./button";
@@ -44,15 +44,21 @@ export default function Sidebar() {
                         },
                         {
                             title: "Clientes",
-                            icon: PersonStanding,
+                            icon: UsersRound,
                             variant: "ghost",
                             href: "/clientes",
                         },
                         {
                             title: "Promotores",
-                            icon: PersonStanding,
+                            icon: UserRound,
                             variant: "ghost",
                             href: "/promotores",
+                        },
+                        {
+                            title: "Localidades",
+                            icon: Map,
+                            variant: "ghost",
+                            href: "/localidades",
                         },
                     ]}
                 />
