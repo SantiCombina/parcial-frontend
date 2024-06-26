@@ -1,9 +1,9 @@
 import {LucideIcon} from "lucide-react";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
-import {cn} from "@/lib/utils";
 import {buttonVariants} from "@/components/ui/button";
 import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip";
+import {cn} from "@/lib/utils";
 
 interface NavProps {
     isCollapsed: boolean;
@@ -17,7 +17,7 @@ interface NavProps {
 }
 
 export function Nav({links, isCollapsed}: NavProps) {
-    const pathName = window.location.pathname;
+    const {pathname} = useLocation();
 
     return (
         <div className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2" data-collapsed={isCollapsed}>
@@ -29,7 +29,7 @@ export function Nav({links, isCollapsed}: NavProps) {
                                 <Link
                                     className={cn(
                                         buttonVariants({
-                                            variant: link.href === pathName ? "default" : "ghost",
+                                            variant: link.href === pathname ? "default" : "ghost",
                                             size: "icon",
                                         }),
                                         "h-9 w-9",
@@ -52,7 +52,7 @@ export function Nav({links, isCollapsed}: NavProps) {
                             key={index}
                             className={cn(
                                 buttonVariants({
-                                    variant: link.href === pathName ? "default" : "ghost",
+                                    variant: link.href === pathname ? "default" : "ghost",
                                     size: "sm",
                                 }),
                                 link.variant === "default" &&
