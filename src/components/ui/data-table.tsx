@@ -1,34 +1,18 @@
-import {ColumnDef, flexRender, getCoreRowModel, getPaginationRowModel, useReactTable} from "@tanstack/react-table";
-import {useState} from "react";
+import {Table, flexRender} from "@tanstack/react-table";
 
-import {Button} from "../ui/button";
+import {Button} from "./button";
 
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
+import {TableBody, TableCell, TableHead, TableHeader, TableRow, Table as TableUI} from "@/components/ui/table";
 
-interface DataTableProps<TData, TValue> {
-    columns: ColumnDef<TData, TValue>[];
-    data: Cliente[];
+interface Props {
+    table: Table<any>;
 }
 
-export function DataTable<TValue>({columns, data}: DataTableProps<Cliente, TValue>) {
-    const [pagination, setPagination] = useState({pageIndex: 0, pageSize: 8});
-
-    const table = useReactTable({
-        data: data ?? [],
-        columns,
-        pageCount: Math.ceil(data?.length / pagination.pageSize),
-        getCoreRowModel: getCoreRowModel(),
-        getPaginationRowModel: getPaginationRowModel(),
-        onPaginationChange: setPagination,
-        state: {
-            pagination,
-        },
-    });
-
+export function DataTable({table}: Props) {
     return (
         <>
             <div className="border rounded-md">
-                <Table>
+                <TableUI>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -61,13 +45,13 @@ export function DataTable<TValue>({columns, data}: DataTableProps<Cliente, TValu
                             ))
                         ) : (
                             <TableRow className="even:bg-gray-100">
-                                <TableCell className="h-24 text-center" colSpan={columns.length}>
+                                <TableCell className="h-24 text-center" colSpan={table.getAllColumns().length}>
                                     No results.
                                 </TableCell>
                             </TableRow>
                         )}
                     </TableBody>
-                </Table>
+                </TableUI>
             </div>
             <div className="flex items-center justify-between">
                 <span>

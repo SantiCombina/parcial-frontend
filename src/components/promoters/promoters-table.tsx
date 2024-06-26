@@ -3,37 +3,21 @@ import {useState} from "react";
 
 import {DataTable} from "../ui/data-table";
 
-import {DeleteClientModal} from "./modals/delete-client-modal";
-import {UpdateClientModal} from "./modals/update-client-modal";
+import {DeletePromoterModal} from "./modals/delete-promoter-modal";
+import {UpdatePromoterModal} from "./modals/update-promoter-modal";
 
 interface Props {
     refetch: () => void;
-    clientes: Cliente[] | undefined;
+    promotores: Promotor[] | undefined;
 }
 
-export function ClientsTable({clientes, refetch}: Props) {
+export function PromotersTable({promotores, refetch}: Props) {
     const [pagination, setPagination] = useState({pageIndex: 0, pageSize: 8});
 
-    const columns: ColumnDef<Cliente>[] = [
+    const columns: ColumnDef<Promotor>[] = [
         {
             accessorKey: "nombre",
             header: "Nombre",
-        },
-        {
-            accessorKey: "domicilio",
-            header: "Domicilio",
-        },
-        {
-            accessorKey: "idLocalidad",
-            header: "Localidad",
-        },
-        {
-            accessorKey: "idPromotor",
-            header: "Promotor",
-        },
-        {
-            accessorKey: "saldo",
-            header: "Saldo",
         },
         {
             accessorKey: "actions",
@@ -43,8 +27,8 @@ export function ClientsTable({clientes, refetch}: Props) {
 
                 return (
                     <div className="flex items-center gap-2">
-                        <UpdateClientModal cliente={items} refetch={refetch} />
-                        <DeleteClientModal cliente={items} refetch={refetch} />
+                        <UpdatePromoterModal promotor={items} refetch={refetch} />
+                        <DeletePromoterModal promotor={items} refetch={refetch} />
                     </div>
                 );
             },
@@ -52,9 +36,9 @@ export function ClientsTable({clientes, refetch}: Props) {
     ];
 
     const table = useReactTable({
-        data: clientes ?? [],
+        data: promotores ?? [],
         columns,
-        pageCount: clientes ? Math.ceil(clientes.length / pagination.pageSize) : 0,
+        pageCount: promotores ? Math.ceil(promotores.length / pagination.pageSize) : 0,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         onPaginationChange: setPagination,
