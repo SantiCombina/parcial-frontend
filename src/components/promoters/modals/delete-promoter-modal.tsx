@@ -43,7 +43,7 @@ export function DeletePromoterModal({refetch, promotor}: Props) {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogTitle>Eliminar promotor</DialogTitle>
                     <DialogDescription>
                         Desea eliminar el promotor <strong>{promotor.nombre}</strong>?
                     </DialogDescription>

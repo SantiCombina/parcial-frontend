@@ -63,8 +63,8 @@ export function UpdatePromoterModal({refetch, promotor}: Props) {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Editar cliente</DialogTitle>
-                    <DialogDescription>Editar los datos del cliente</DialogDescription>
+                    <DialogTitle>Editar promotor</DialogTitle>
+                    <DialogDescription>Editar los datos del promotor</DialogDescription>
                 </DialogHeader>
                 <form className="grid gap-4 py-4" onSubmit={handleSubmit(onSubmit)}>
                     <FormInput

@@ -57,7 +57,7 @@ export function AddPromoterModal({refetch}: Props) {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogTitle>Añadir promotor</DialogTitle>
                     <DialogDescription>
                         Make changes to your profile here. Click save when youre done.
                     </DialogDescription>

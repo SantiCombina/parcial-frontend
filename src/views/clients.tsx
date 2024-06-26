@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 
 import {ClientsTable} from "@/components/clients/clients-table";
 import {AddClientModal} from "@/components/clients/modals/add-client-modal";
+import {PageTitle} from "@/components/ui/page-title";
 
 export function Clients() {
     const [clientes, setClientes] = useState<Cliente[] | undefined>(undefined);
@@ -19,11 +20,9 @@ export function Clients() {
 
     return (
         <div className="flex flex-col w-full gap-5">
-            <h2 className="font-bold text-center text-black">Clientes paaaaa</h2>
+            <PageTitle title="Clientes" />
             <AddClientModal refetch={getClientes} />
-            <div className="container">
-                <ClientsTable clientes={clientes} refetch={getClientes} />
-            </div>
+            <ClientsTable clientes={clientes} refetch={getClientes} />
         </div>
     );
 }
