@@ -53,14 +53,14 @@ export function AddPromoterModal({refetch}: Props) {
     return (
         <Dialog open={modalOpen} onOpenChange={setModalOpen}>
             <DialogTrigger asChild>
-                <Button variant="outline">Añadir promotor</Button>
+                <Button className="text-white bg-blue-400 hover:bg-blue-300 hover:text-white w-36" variant="outline">
+                    Añadir promotor
+                </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Añadir promotor</DialogTitle>
-                    <DialogDescription>
-                        Make changes to your profile here. Click save when youre done.
-                    </DialogDescription>
+                    <DialogTitle>Crear promotor</DialogTitle>
+                    <DialogDescription>Complete el formulario para añadir un nuevo promotor.</DialogDescription>
                 </DialogHeader>
                 <form className="grid gap-4 py-4" onSubmit={handleSubmit(onSubmit)}>
                     <FormInput

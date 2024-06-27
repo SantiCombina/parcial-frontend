@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 
-import {AddPromoterModal} from "@/components/promoters/modals/add-promoter-modal";
 import {PromotersTable} from "@/components/promoters/promoters-table";
 import {PageTitle} from "@/components/ui/page-title";
 
@@ -21,7 +20,6 @@ export function Promoters() {
     return (
         <div className="flex flex-col w-full gap-5">
             <PageTitle title="Promotores" />
-            <AddPromoterModal refetch={getPromotores} />
             <PromotersTable promotores={promotores} refetch={getPromotores} />
         </div>
     );
