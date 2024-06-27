@@ -5,4 +5,6 @@ interface Cliente {
     idLocalidad: number;
     idPromotor: number;
     saldo: number;
+    localidad?: string;
+    promotor?: string;
 }

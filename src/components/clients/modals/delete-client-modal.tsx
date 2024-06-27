@@ -37,19 +37,21 @@ export function DeleteClientModal({refetch, cliente}: Props) {
     return (
         <Dialog open={modalOpen} onOpenChange={setModalOpen}>
             <DialogTrigger asChild>
-                <Button variant="destructive">
-                    <Trash2 width={18} />
+                <Button size={"icon"} variant="destructive">
+                    <Trash2 width={20} />
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogTitle>Eliminar cliente</DialogTitle>
                     <DialogDescription>
                         Desea eliminar el cliente <strong>{cliente.nombre}</strong>?
                     </DialogDescription>
                 </DialogHeader>
                 <DialogClose>Cancelar</DialogClose>
-                <Button onClick={onSubmit}>Eliminar</Button>
+                <Button variant={"destructive"} onClick={onSubmit}>
+                    Eliminar
+                </Button>
             </DialogContent>
         </Dialog>
     );
