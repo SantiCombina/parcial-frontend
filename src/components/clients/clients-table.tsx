@@ -73,7 +73,7 @@ export function ClientsTable({clientes, refetch}: Props) {
             cell: ({row}) => {
                 const items = row.original;
 
-                return <div className="text-right">{items.saldo}</div>;
+                return <div className="text-right">$ {items.saldo}</div>;
             },
         },
         {
