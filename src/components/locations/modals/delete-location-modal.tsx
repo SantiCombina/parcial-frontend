@@ -37,8 +37,8 @@ export function DeleteLocationModal({refetch, localidad}: Props) {
     return (
         <Dialog open={modalOpen} onOpenChange={setModalOpen}>
             <DialogTrigger asChild>
-                <Button variant="destructive">
-                    <Trash2 width={18} />
+                <Button size={"icon"} variant="destructive">
+                    <Trash2 width={20} />
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
@@ -49,7 +49,9 @@ export function DeleteLocationModal({refetch, localidad}: Props) {
                     </DialogDescription>
                 </DialogHeader>
                 <DialogClose>Cancelar</DialogClose>
-                <Button onClick={onSubmit}>Eliminar</Button>
+                <Button variant={"destructive"} onClick={onSubmit}>
+                    Eliminar
+                </Button>
             </DialogContent>
         </Dialog>
     );

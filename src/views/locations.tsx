@@ -1,17 +1,28 @@
 import {useEffect, useState} from "react";
 
-import {PageTitle} from "@/components/ui/page-title";
-import {AddLocationModal} from "@/components/locations/modals/add-location-modal";
 import {LocationsTable} from "@/components/locations/locations-table";
+import {PageTitle} from "@/components/ui/page-title";
 
 export function Locations() {
     const [localidades, setLocalidades] = useState<Localidad[] | undefined>(undefined);
 
     const getLocalidades = async () => {
-        const response = await fetch("http://localhost:3000/api/localidades");
-        const data = await response.json();
+        const localidadesResponse = await fetch("http://localhost:3000/api/localidades");
+        const localidadData = await localidadesResponse.json();
 
-        setLocalidades(data);
+        const provinciasResponse = await fetch("http://localhost:3000/api/provincias");
+        const provinciaData = await provinciasResponse.json();
+
+        setLocalidades(
+            localidadData.map((localidad: Localidad) => {
+                const provincia = provinciaData.find((provincia: Provincia) => provincia.id === localidad.idProvincia);
+
+                return {
+                    ...localidad,
+                    provincia: provincia?.nombre,
+                };
+            }),
+        );
     };
 
     useEffect(() => {
@@ -21,7 +32,6 @@ export function Locations() {
     return (
         <div className="flex flex-col w-full gap-5">
             <PageTitle title="Localidades" />
-            <AddLocationModal refetch={getLocalidades} />
             <LocationsTable localidades={localidades} refetch={getLocalidades} />
         </div>
     );

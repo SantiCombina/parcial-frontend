@@ -1,4 +1,6 @@
 interface Localidad {
-    id?: number;
+    id: number;
     nombre: string;
+    idProvincia: number;
+    provincia?: string;
 }

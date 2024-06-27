@@ -56,8 +56,8 @@ export function UpdateLocationModal({refetch, localidad}: Props) {
     return (
         <Dialog open={modalOpen} onOpenChange={setModalOpen}>
             <DialogTrigger asChild>
-                <Button variant="outline">
-                    <Pencil width={18} />
+                <Button size={"icon"} variant="outline">
+                    <Pencil width={20} />
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
